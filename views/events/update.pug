@@ -1,0 +1,10 @@
+extends ../layout
+block title
+  |  Update Event
+block content
+  h3 Update Event
+  form(name="add", method="post")
+    include fields
+    input.btn.btn-primary(name="submit", type="submit", value="Update")
+    | &nbsp;
+    a.btn.btn-default(href='/events') Cancel
