@@ -1,0 +1,10 @@
+extends ../layout
+block title
+  |  New Event
+block content
+  h3 Add Event
+  form(name="add", method="post")
+    include fields
+    input.btn.btn-primary(name="submit", type="submit", value="Add")
+    | &nbsp;
+    a.btn.btn-default(href='/events') Cancel
