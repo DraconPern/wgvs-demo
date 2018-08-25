@@ -1,3 +1,3 @@
 API_URL=http://localhost:3000
-MONGODB_URL=mongodb://mongodb/test
-SESSION_SECRET=kjasldjf
+MONGODB_URL=mongodb://localhost/test
+SESSION_SECRET=opqweioruuqoprpre
