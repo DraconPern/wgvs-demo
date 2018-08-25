@@ -45,8 +45,11 @@ exports.addEvent = function (data, callback) {
 }
 
 exports.updateEvent = function (data, callback) {
-  Event.updateOneAndUpdate({eventId: data.eventId}, data)
+  Event.findOneAndUpdate({eventId: data.eventId}, data, {new: true})
   .then(function(event) {
+    if(!event)
+      throw createError(404, 'event not found');
+
     return callback(null, event);
   })
   .catch(function(err) {

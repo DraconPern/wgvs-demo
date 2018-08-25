@@ -53,13 +53,13 @@ describe('API Tests', function() {
 
   describe('## Update event 1', function() {
     it('should update an event', function(done) {
-      sampleEvent1.description = 'new description'
+      sampleEvent1.description = 'new description';
       request(app) .post('/api/events/' + sampleEvent1.eventId) .send(sampleEvent1) .end(function(err, res) {
         expect(res.statusCode).to.equal(200);
         expect(res.body.event.name).to.equal('event name1');
         expect(res.body.event.description).to.equal('new description');
         sampleEvent1 = res.body.event;
-        done();
+        done();        
       });
     });
   });
