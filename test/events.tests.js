@@ -39,6 +39,17 @@ describe('API Tests', function() {
     });
   });
 
+  describe('## check event 1', function() {
+    it('should create an event', function(done) {
+      request(app) .get('/api/events/' + sampleEvent1.eventId) .end(function(err, res) {
+        expect(res.statusCode).to.equal(200);
+        expect(res.body.event.name).to.equal('event name1');
+        expect(res.body.event.description).to.equal('event description');        
+        done();
+      });
+    });
+  });
+
   describe('## Create event 2', function() {
     it('should create an event', function(done) {
       request(app) .post('/api/events') .send(sampleEvent2) .end(function(err, res) {
