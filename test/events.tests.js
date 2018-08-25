@@ -55,7 +55,7 @@ describe('API Tests', function() {
     it('should update an event', function(done) {
       sampleEvent1.name = 'new name';
       sampleEvent1.description = 'new description';
-      request(app) .post('/api/events/' + sampleEvent1.eventId) .send(sampleEvent1) .end(function(err, res) {
+      request(app) .put('/api/events/' + sampleEvent1.eventId) .send(sampleEvent1) .end(function(err, res) {
         expect(res.statusCode).to.equal(200);
         expect(res.body.event.name).to.equal('new name');
         expect(res.body.event.description).to.equal('new description');
