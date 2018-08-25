@@ -15,6 +15,9 @@ npm run start
 ```
 - browse to http://localhost:3000/
 
+## Endpoint documentation
+https://documenter.getpostman.com/view/2971518/RWTrPHJP
+
 ## Author
 Ing-Long Eric Kuo <draconpern@hotmail.com>
 
