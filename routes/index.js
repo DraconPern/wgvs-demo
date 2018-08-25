@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 
 if(process.env.NO_API != 'true') {
 
+  // use only json so we don't need to deal with CSRF
   router.use(bodyParser.json());
 
   var api = require('./api');
