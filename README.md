@@ -6,13 +6,14 @@ Express Mongo api sample project for WGVS
 - NPM and node
 
 ## Running
+copy .sample-env to .env and edit to set various options
+
 ```
 npm install
 npm run start
 ```
 - browse to http://localhost:3000/
 
-copy .sample-env to .env and edit to set various options
 ## Author
 Ing-Long Eric Kuo <draconpern@hotmail.com>
 
