@@ -1,14 +1,27 @@
 doctype html
-html
+html(lang="en")
   head
     title
       block title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    block styles
+      link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+      link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/css/ie10-viewport-bug-workaround.css")
+      link(rel="stylesheet",href="https://cdn.datatables.net/v/bs/dt-1.10.15/datatables.min.css")
+      link(rel="stylesheet",href="/stylesheets/style.css")
+      <!--[if lt IE 9]>
+      script(src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js")
+      script(src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js")
+      <![endif]-->
   body
-    if(messages.error)
-      p.bg-danger
-        = messages.error
-    if(messages.success)
-      p.bg-success
-        = messages.success
-    block content
+    div.container
+      if(messages.error)
+        p.bg-danger
+          = messages.error
+      if(messages.success)
+        p.bg-success
+          = messages.success
+      block content
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    script(src="https://cdn.datatables.net/v/bs/dt-1.10.15/datatables.min.js")
+    block scripts

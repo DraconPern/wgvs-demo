@@ -4,17 +4,15 @@ block title
 block content
   h3 Events
 
-  table
+  table#events.table.table-bordered
     thead
       tr
-        th id
         th name
         th description
+        th ops
     tbody
       each event in events ? events : []
         tr
-          td
-            = event.eventId
           td
             = event.name
           td
