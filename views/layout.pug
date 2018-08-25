@@ -5,4 +5,10 @@ html
       block title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    if(messages.error)
+      p.bg-danger
+        = messages.error
+    if(messages.success)
+      p.bg-success
+        = messages.success
     block content
