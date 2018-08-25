@@ -58,8 +58,11 @@ exports.updateEvent = function (data, callback) {
 }
 
 exports.deleteEvent = function (eventId, callback) {
-  Event.deleteOne({eventId})
-  .then(function() {
+  Event.findOneAndDelete({eventId})
+  .then(function(event) {
+    if(!event)
+      throw createError(404, 'event not found');
+      
     return callback(null, true);
   })
   .catch(function(err) {

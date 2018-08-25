@@ -53,13 +53,14 @@ describe('API Tests', function() {
 
   describe('## Update event 1', function() {
     it('should update an event', function(done) {
+      sampleEvent1.name = 'new name';
       sampleEvent1.description = 'new description';
       request(app) .post('/api/events/' + sampleEvent1.eventId) .send(sampleEvent1) .end(function(err, res) {
         expect(res.statusCode).to.equal(200);
-        expect(res.body.event.name).to.equal('event name1');
+        expect(res.body.event.name).to.equal('new name');
         expect(res.body.event.description).to.equal('new description');
         sampleEvent1 = res.body.event;
-        done();        
+        done();
       });
     });
   });
@@ -70,7 +71,7 @@ describe('API Tests', function() {
         expect(res.statusCode).to.equal(200);
         expect('Content-Type', /json/);
         expect(res.body).to.have.property('events');
-        expect(res.body).to.have.property('events').to.be.an('array');
+        expect(res.body).to.have.property('events').to.be.an('array').to.have.lengthOf(2);
         done();
       });
     });
@@ -89,6 +90,24 @@ describe('API Tests', function() {
     it('should delete a event', function(done) {
       request(app) .del('/api/events/' + sampleEvent2.eventId) .end(function(err, res) {
         expect(res.statusCode).to.equal(200);
+        done();
+      });
+    });
+  });
+
+  describe('## update none existant event', function() {
+    it('should update no event', function(done) {
+      request(app) .post('/api/events/nosuchitem') .end(function(err, res) {
+        expect(res.statusCode).to.equal(404);
+        done();
+      });
+    });
+  });
+
+  describe('## delete none existant event', function() {
+    it('should delete no event', function(done) {
+      request(app) .del('/api/events/nosuchitem') .end(function(err, res) {
+        expect(res.statusCode).to.equal(404);
         done();
       });
     });
