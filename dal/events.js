@@ -45,7 +45,7 @@ exports.addEvent = function (data, callback) {
 }
 
 exports.updateEvent = function (data, callback) {
-  Event.updateOne({eventId: data.eventId}, data)
+  Event.updateOneAndUpdate({eventId: data.eventId}, data)
   .then(function(event) {
     return callback(null, event);
   })

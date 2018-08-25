@@ -38,7 +38,7 @@ router.post('/:eventId', function(req, res, next) {
   req.body.eventId = req.params.eventId;
   events.updateEventAsync(req.body)
   .then(function(event) {
-    return res.json(event);
+    return res.json({event});
   })
   .catch(function(err) {
     return next(err);
