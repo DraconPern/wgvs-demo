@@ -10,6 +10,7 @@ copy .sample-env to .env and edit to set various options
 
 ```
 npm install
+npm run test
 npm run start
 ```
 - browse to http://localhost:3000/
