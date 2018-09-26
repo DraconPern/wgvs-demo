@@ -53,7 +53,7 @@ router.post('/:eventId', function(req, res, next) {
 
 function updateEvent(req, res)
 {
-  request.post(process.env.API_URL + '/api/events/' + req.params.eventId, { body: req.body, json: true})
+  request.put(process.env.API_URL + '/api/events/' + req.params.eventId, { body: req.body, json: true})
   .then(function(agentbody) {
     req.flash('success', 'Event updated.');
     return res.redirect('/events');
